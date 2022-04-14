@@ -31,10 +31,6 @@ sendBtn.onclick = () => {
     xhr.send(formData);
 };
 
-chatBox.onmouseenter = () => {
-    chatBox.classList.add("active");
-}
-chatBox.classList.remove("active");
 
 setInterval(() => {
     let xhr = new XMLHttpRequest();
