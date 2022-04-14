@@ -45,4 +45,4 @@ setInterval(() => {
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("incoming_id=" + incoming_id);
-}, 500);
+}, 2000);
