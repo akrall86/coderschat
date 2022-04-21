@@ -31,16 +31,21 @@ session_start();
             </div>
         </form>
         <?php
-        if (isset($_POST['submit'])){
-            include_once __DIR__ . "/classes/class.user.php";
-            $user = new User();
-            $check = $user->signin($_POST['uname'], $_POST['password']);
-            if ($check == true){
-                echo "Erfolgreich eingeloggt!";
-                header("Refresh: 3; url=users.php");
-            } else{
-                echo "Login fehlgeschlagen!";
+        if (isset($_POST['submit'])) {
+            try {
+                include_once __DIR__ . "/classes/class.user.php";
+                $user = new User();
+                $check = $user->signin($_POST['uname'], $_POST['password']);
+                if ($check) {
+                    echo "Erfolgreich eingeloggt!";
+                    header("Refresh: 3; url=users.php");
+                } else {
+                    echo "Login fehlgeschlagen!";
+                }
+            } catch (Exception $error) {
+                echo $error->getMessage();
             }
+
         }
         ?>
         <div class="link">Noch kein Mitglied <a href="index.php">Sign Up</a></div>

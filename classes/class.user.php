@@ -4,6 +4,9 @@ include __DIR__ . "/class.db.php";
 class User extends Connection
 {
 
+    /**
+     * @throws Exception
+     */
     public function signup($uname, $email, $pw): bool
     {
 
@@ -31,10 +34,10 @@ class User extends Connection
                         $stmt->execute([$ran_id, $uname, $email, $encrypt_pass, $new_img_name, $status]);
                     }
                 } else {
-                    echo "Dateityp ungültig!";
+                    throw new Exception("Dateityp ungültig!");
                 }
             } else {
-                echo "Dateiformat ungültig!";
+                throw new Exception("Dateiformat ungültig!");
             }
             return true;
         }
