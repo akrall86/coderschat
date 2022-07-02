@@ -1,8 +1,8 @@
 <?php
 
 const DB_HOST = 'localhost';
-const DB_USER = 'root';
-const DB_PW = 'root';
+const DB_USER = 'user';
+const DB_PW = 'user';
 const DB_NAME = 'coderschat';
 
 class Connection
